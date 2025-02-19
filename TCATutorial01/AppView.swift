@@ -6,13 +6,27 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct AppView: View {
+    let store1: StoreOf<CounterFeature>
+    let store2: StoreOf<CounterFeature>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            CounterView(store: store1)
+                .tabItem {
+                    Text("Counter 1")
+                }
+            CounterView(store: store2)
+                .tabItem {
+                    Text("Counter 2")
+                }
+            
+        }
     }
 }
-
-#Preview {
-    AppView()
-}
+//
+//#Preview {
+//    AppView()
+//}
